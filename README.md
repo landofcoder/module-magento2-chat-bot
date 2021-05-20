@@ -1,6 +1,7 @@
 # Mage2 Module Lof ChatBot
+The module allow define chat bot auto replies which will been used for [Lof_ChatSystem extension](https://landofcoder.com/magento-2-live-chat-extension.html)
 
-    ``lof/module-chatbot``
+    ``landofcoder/module-chatbot``
 
  - [Main Functionalities](#markdown-header-main-functionalities)
  - [Installation](#markdown-header-installation)
