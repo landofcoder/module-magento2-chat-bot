@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="Lof\ChatBot\Api\ChatbotRepositoryInterface" type="Lof\ChatBot\Model\ChatbotRepository"/>
+	<preference for="Lof\ChatBot\Api\Data\ChatbotInterface" type="Lof\ChatBot\Model\Data\Chatbot"/>
+	<preference for="Lof\ChatBot\Api\Data\ChatbotSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="Lof\ChatBot\Model\ResourceModel\Chatbot\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">lof_chatbot_chatbot</argument>
+			<argument name="resourceModel" xsi:type="string">Lof\ChatBot\Model\ResourceModel\Chatbot\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="lof_chatbot_chatbot_listing_data_source" xsi:type="string">Lof\ChatBot\Model\ResourceModel\Chatbot\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+</config>

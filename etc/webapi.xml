@@ -1,0 +1,33 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/lof-chatbot/chatbot" method="POST">
+		<service class="Lof\ChatBot\Api\ChatbotRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Lof_ChatBot::Chatbot_save"/>
+		</resources>
+	</route>
+	<route url="/V1/lof-chatbot/chatbot/search" method="GET">
+		<service class="Lof\ChatBot\Api\ChatbotRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="Lof_ChatBot::Chatbot_view"/>
+		</resources>
+	</route>
+	<route url="/V1/lof-chatbot/chatbot/:chatbotId" method="GET">
+		<service class="Lof\ChatBot\Api\ChatbotRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="Lof_ChatBot::Chatbot_view"/>
+		</resources>
+	</route>
+	<route url="/V1/lof-chatbot/chatbot/:chatbotId" method="PUT">
+		<service class="Lof\ChatBot\Api\ChatbotRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="Lof_ChatBot::Chatbot_update"/>
+		</resources>
+	</route>
+	<route url="/V1/lof-chatbot/chatbot/:chatbotId" method="DELETE">
+		<service class="Lof\ChatBot\Api\ChatbotRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="Lof_ChatBot::Chatbot_delete"/>
+		</resources>
+	</route>
+</routes>

@@ -1,0 +1,195 @@
+<?xml version="1.0" ?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">lof_chatbot_chatbot_listing.lof_chatbot_chatbot_listing_data_source</item>
+		</item>
+	</argument>
+	<settings>
+		<spinner>lof_chatbot_chatbot_columns</spinner>
+		<deps>
+			<dep>lof_chatbot_chatbot_listing.lof_chatbot_chatbot_listing_data_source</dep>
+		</deps>
+		<buttons>
+			<button name="add">
+				<url path="*/*/new"/>
+				<class>primary</class>
+				<label translate="true">Add new Chatbot</label>
+			</button>
+		</buttons>
+	</settings>
+	<dataSource name="lof_chatbot_chatbot_listing_data_source" component="Magento_Ui/js/grid/provider">
+		<settings>
+			<storageConfig>
+				<param name="indexField" xsi:type="string">chatbot_id</param>
+			</storageConfig>
+			<updateUrl path="mui/index/render"/>
+		</settings>
+		<aclResource>Lof_ChatBot::Chatbot</aclResource>
+		<dataProvider name="lof_chatbot_chatbot_listing_data_source" class="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+			<settings>
+				<requestFieldName>id</requestFieldName>
+				<primaryFieldName>chatbot_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<listingToolbar name="listing_top">
+		<settings>
+			<sticky>true</sticky>
+		</settings>
+		<bookmark name="bookmarks"/>
+		<columnsControls name="columns_controls"/>
+		<filters name="listing_filters"/>
+		<paging name="listing_paging"/>
+	</listingToolbar>
+	<columns name="lof_chatbot_chatbot_columns">
+		<settings>
+			<editorConfig>
+				<param name="selectProvider" xsi:type="string">lof_chatbot_chatbot_listing.lof_chatbot_chatbot_listing.lof_chatbot_chatbot_columns.ids</param>
+				<param name="enabled" xsi:type="boolean">true</param>
+				<param name="indexField" xsi:type="string">chatbot_id</param>
+				<param name="clientConfig" xsi:type="array">
+					<item name="saveUrl" xsi:type="url" path="lof_chatbot/Chatbot/inlineEdit"/>
+					<item name="validateBeforeSave" xsi:type="boolean">false</item>
+				</param>
+			</editorConfig>
+			<childDefaults>
+				<param name="fieldAction" xsi:type="array">
+					<item name="provider" xsi:type="string">lof_chatbot_chatbot_listing.lof_chatbot_chatbot_listing.lof_chatbot_chatbot_columns_editor</item>
+					<item name="target" xsi:type="string">startEdit</item>
+					<item name="params" xsi:type="array">
+						<item name="0" xsi:type="string">${ $.$data.rowIndex }</item>
+						<item name="1" xsi:type="boolean">true</item>
+					</item>
+				</param>
+			</childDefaults>
+		</settings>
+		<selectionsColumn name="ids">
+			<settings>
+				<indexField>chatbot_id</indexField>
+			</settings>
+		</selectionsColumn>
+		<column name="chatbot_id">
+			<settings>
+				<filter>text</filter>
+				<sorting>asc</sorting>
+				<label translate="true">ID</label>
+			</settings>
+		</column>
+		<column name="entity_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">entity_id</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<actionsColumn name="actions" class="Lof\ChatBot\Ui\Component\Listing\Column\ChatbotActions">
+			<settings>
+				<indexField>chatbot_id</indexField>
+				<resizeEnabled>false</resizeEnabled>
+				<resizeDefaultWidth>107</resizeDefaultWidth>
+			</settings>
+		</actionsColumn>
+		<column name="user_says">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">user_says</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="action_type">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">action_type</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="response">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">response</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="action_notify_to">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">action_notify_to</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="action_assign_to">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">action_assign_to</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="store_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">store_id</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="customer_group_id">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">customer_group_id</label>
+				<editor>
+					<editorType>text</editorType>
+					<validation>
+						<rule name="required-entry" xsi:type="boolean">false</rule>
+					</validation>
+				</editor>
+			</settings>
+		</column>
+		<column name="created_at">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">created_at</label>
+			</settings>
+		</column>
+		<column name="updated_at">
+			<settings>
+				<filter>text</filter>
+				<label translate="true">updated_at</label>
+			</settings>
+		</column>
+	</columns>
+</listing>

@@ -1,0 +1,6 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="Lof_ChatBot::lof_chatbot_chatbot" title="Chatbot" module="Lof_ChatBot" sortOrder="80" resource="Lof_ChatBot::Chatbot" parent="Lof_ChatSystem::chatsystem" action="lof_chatbot/chatbot/index"/>
+	</menu>
+</config>
